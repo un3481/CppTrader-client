@@ -20,7 +20,9 @@
 
     /* Read Server Response */
     function read_response(Socket $socket, string $command) {
-        return socket_read($socket, MSG_SIZE_LARGE);
+        $buffer = socket_read($socket, MSG_SIZE_LARGE);
+        if (!$buffer) return false;
+        return explode("\0", $buffer)[0];
     }
 
     // Send Commands
