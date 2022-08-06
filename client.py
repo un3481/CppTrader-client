@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from msilib.schema import Error
 import os
 import socket
 
