@@ -32,4 +32,4 @@ try:
     client.close()
 
 except Exception as e:
-    print("Couldn't Connect! : {e}")
+    print(f"Couldn't Connect! : {e}")
