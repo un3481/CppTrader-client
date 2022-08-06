@@ -22,11 +22,15 @@ try:
         try:
             x = input("> ")
             if x != "":
-                client.send(bytes(x + "\n"))
+                client.send(
+                    bytes(map(ord, x + "\n"))
+                )
                 if x == "exit": break
                 if x.startswith("get"):
                     res = client.recv(MSG_SIZE_LARGE)
-                    print(res)
+                    print(
+                        ''.join(map(chr, res))
+                    )
         
         except KeyboardInterrupt: break
         except Exception as e: print(f"{e}")
