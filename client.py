@@ -9,8 +9,8 @@ socket_path = "/home/ubuntu/Documents/GitHub/daemons/testing.sock"
 
 try:
     
-    if os.path.exists(socket_path):
-        raise Exception("no file")
+    if not os.path.exists(socket_path):
+        raise Exception("socket file doesn't exist")
 
     client = socket.socket(
         socket.AF_UNIX,
