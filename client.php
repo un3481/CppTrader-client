@@ -3,7 +3,7 @@
     // Constants
     define("MSG_SIZE", 1024);
     define("MSG_SIZE_LARGE", 8192);
-    define("SOCK_PATH", "/home/ubuntu/GitHub/CppTrader/bin/daemons/test.sock");
+    define("SOCK_PATH", "/home/ubuntu/GitHub/daemons/testing.sock");
 
     /* Create a Connection to Socket */
     function unix_socket(string $path) {
