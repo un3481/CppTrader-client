@@ -9,6 +9,10 @@ MSG_SIZE_LARGE = 8192
 socket_path = sys.argv[1]
 
 try:
+    # Check input path
+    if socket_path == None:
+        raise Exception("no path provided to socket file")
+    
     # Check if file exists
     if not os.path.exists(socket_path):
         raise Exception("socket file doesn't exist")
