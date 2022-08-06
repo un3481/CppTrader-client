@@ -25,8 +25,10 @@
         return explode("\0", $buffer)[0];
     }
 
-    // Send Commands
+    // Open Connection
     $socket = unix_socket(SOCK_PATH);
+
+    // Send Commands
     if ($socket) {
         send_command($socket, "add symbol 1 BTC_USDT");
         send_command($socket, "add book 1");
@@ -34,6 +36,8 @@
         echo(read_response($socket, "get book 1")."\n");
         send_command($socket, "add limit buy 1 1 20000 1");
         echo(read_response($socket, "get book 1")."\n");
+
+        // Close Connection
         socket_close($socket);
     }
     
