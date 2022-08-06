@@ -5,7 +5,7 @@ import socket
 
 MSG_SIZE = 1024
 MSG_SIZE_LARGE = 8192
-socket_path = "/home/ubuntu/GitHub/daemons/testing.sock"
+socket_path = "/home/ubuntu/Documents/GitHub/daemons/testing.sock"
 
 try:
     
