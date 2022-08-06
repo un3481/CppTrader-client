@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 
+from msilib.schema import Error
 import os
 import socket
 
@@ -10,7 +11,7 @@ socket_path = "/home/ubuntu/Documents/GitHub/daemons/testing.sock"
 try:
     
     if os.path.exists(socket_path):
-        raise "no file"
+        raise Exception("no file")
 
     client = socket.socket(
         socket.AF_UNIX,
