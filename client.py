@@ -6,12 +6,14 @@ import socket
 
 MSG_SIZE = 1024
 MSG_SIZE_LARGE = 8192
-socket_path = sys.argv[1]
 
 try:
     # Check input path
-    if socket_path == None:
+    if len(sys.argv) < 2:
         raise Exception("no path provided to socket file")
+    
+    # Get input path
+    socket_path = sys.argv[1]
     
     # Check if file exists
     if not os.path.exists(socket_path):
