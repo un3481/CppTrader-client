@@ -28,11 +28,9 @@ try:
                 client.send(buffer)
                 if x == "exit": break
                 if x.startswith("get"):
-                    time.sleep(1)
-                    res = client.recv(MSG_SIZE_LARGE)
-                    print(
-                        ''.join(map(chr, res))
-                    )
+                    buffer = client.recv(MSG_SIZE_LARGE)
+                    res = ''.join(map(chr, buffer)).split("\0")[0]
+                    print(res)
         
         except KeyboardInterrupt:
             print("\n")
