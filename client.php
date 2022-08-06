@@ -15,7 +15,7 @@
 
     /* Send Command to Stream */ 
     function send_command(Socket $socket, string $command) {
-        return socket_write($socket, $command."\n", MSG_SIZE);
+        return socket_write($socket, $command."\0", MSG_SIZE);
     }
 
     /* Read Server Response */

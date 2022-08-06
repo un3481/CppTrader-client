@@ -23,9 +23,9 @@ try:
         try:
             x = input("> ")
             if x != "":
-                client.send(
-                    bytes(map(ord, x + "\n"))
-                )
+                buffer = bytes(map(ord, x + "\0"))
+                buffer += b"\0" * (MSG_SIZE - len(buffer))
+                client.send(buffer)
                 if x == "exit": break
                 if x.startswith("get"):
                     time.sleep(1)
