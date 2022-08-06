@@ -29,12 +29,12 @@ try:
     # Loop Inputs
     while True:
         try:
-            x = input("> ") # Input command
-            buffer = bytes(map(ord, x + "\0")) # Create buffer
+            cmd = input("> ") # Input command
+            buffer = bytes(map(ord, cmd + "\0")) # Create buffer
             buffer += b"\0" * (MSG_SIZE - len(buffer)) # enforce MSG_SIZE
             client.send(buffer) # Send message
-            if x == "exit": break
-            if x.startswith("get"): # If command recieves response
+            if cmd == "exit": break
+            if cmd.startswith("get"): # If command recieves response
                 buffer = client.recv(MSG_SIZE_LARGE) # Read MSG_SIZE_LARGE bytes
                 res = ''.join(map(chr, buffer)).split("\0")[0] # Remove extra chars
                 print(res) # Print response
