@@ -31,4 +31,5 @@ try:
 
     client.close()
 
-except: print("Couldn't Connect!")
+except Exception as e:
+    print("Couldn't Connect! : {e}")
