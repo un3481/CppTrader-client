@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import os
-import time
+import sys
 import socket
 
 MSG_SIZE = 1024
 MSG_SIZE_LARGE = 8192
-socket_path = "/home/ubuntu/Documents/GitHub/daemons/testing.sock"
+socket_path = sys.argv[1]
 
 try:
     # Check if file exists
