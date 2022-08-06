@@ -19,7 +19,7 @@
     }
 
     /* Read Server Response */
-    function read_response(Socket $socket, string $command) {
+    function read_response(Socket $socket) {
         $buffer = socket_read($socket, MSG_SIZE_LARGE);
         if (!$buffer) return false;
         return explode("\0", $buffer)[0];
@@ -33,9 +33,11 @@
         send_command($socket, "add symbol 1 BTC_USDT");
         send_command($socket, "add book 1");
         send_command($socket, "add limit sell 1 1 20000 1");
-        echo(read_response($socket, "get book 1")."\n");
+        send_command($socket, "get book 1");
+        echo(read_response($socket)."\n");
         send_command($socket, "add limit buy 1 1 20000 1");
-        echo(read_response($socket, "get book 1")."\n");
+        send_command($socket, "get book 1");
+        echo(read_response($socket)."\n");
 
         // Close Connection
         socket_close($socket);
