@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import os
+import time
 import socket
 
 MSG_SIZE = 1024
@@ -27,14 +28,19 @@ try:
                 )
                 if x == "exit": break
                 if x.startswith("get"):
+                    time.sleep(1)
                     res = client.recv(MSG_SIZE_LARGE)
                     print(
                         ''.join(map(chr, res))
                     )
         
-        except KeyboardInterrupt: break
-        except Exception as e: print(f"{e}")
+        except KeyboardInterrupt:
+            print("\n")
+            break
+        except Exception as e:
+            print(f"{e}")
     
     client.close()
 
-except Exception as e: print(f"{e}")
+except Exception as e:
+    print(f"{e}")
