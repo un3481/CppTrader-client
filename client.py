@@ -7,8 +7,11 @@ MSG_SIZE = 1024
 MSG_SIZE_LARGE = 8192
 socket_path = "/home/ubuntu/GitHub/daemons/testing.sock"
 
-if os.path.exists(socket_path):
+try:
     
+    if os.path.exists(socket_path):
+        raise "no file"
+
     client = socket.socket(
         socket.AF_UNIX,
         socket.SOCK_STREAM
@@ -27,6 +30,5 @@ if os.path.exists(socket_path):
         except KeyboardInterrupt: break
 
     client.close()
-    print("Shutdown")
-else:
-    print("Couldn't Connect!")
+
+except: print("Couldn't Connect!")
